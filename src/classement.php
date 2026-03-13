@@ -4,7 +4,7 @@
     <h2>Classement des tests</h2>
     
 <?php
-    $conn = new mysqli("localhost", "root", "", "ethylotest_db");
+    include './db/database.php';
 
     $result = $conn->query("SELECT * FROM mesures ORDER BY date DESC");
 
