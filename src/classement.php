@@ -2,23 +2,23 @@
 
 <section class="section_classement">
     <h2>Classement des tests</h2>
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Taux d'alcool</th>
-            <th>Date</th>
-        </tr>
-        <tr>
-            <td>Utilisateur 1</td>
-            <td>0.20 g/L</td>
-            <td>09/03/2026</td>
-        </tr>
-        <tr>
-            <td>Utilisateur 2</td>
-            <td>0.35 g/L</td>
-            <td>08/03/2026</td>
-        </tr>
-    </table>
+    
+<?php
+    $conn = new mysqli("localhost", "root", "", "ethylotest_db");
+
+    $result = $conn->query("SELECT * FROM mesures ORDER BY date DESC");
+
+    echo "<h1>Mesures d'alcool</h1>";
+    echo "<table><tr><th>Nom</th><th>Taux</th><th>Date</th></tr>";
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row['pseudo']."</td><td>".$row['taux']."</td><td>".$row['date']."</td></tr>";
+    }
+
+    echo "</table>";
+    $conn->close();
+?>
+
 </section>
 
 <?php include "includes/footer.php"; ?>
