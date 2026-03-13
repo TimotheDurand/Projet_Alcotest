@@ -1,26 +1,27 @@
 <?php
-// a modifier dans db.php
-$conn = new mysqli("localhost","user","password","ethylo_db");
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "ethylotest_db";
 
-if ($conn->connect_error) {
-    die("Connection failed");
-}
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-// ------- partie securite a verfifier 
-if($_GET['key'] != "123ABC") {
-   die("Access denied");
-}
-// dans l'esp32 -----  String url = "https://monsite.com/add_data.php?key=123ABC&alcool=" + String(valeur);
+    if ($conn->connect_error) {
+        die("Connexion échouée: " . $conn->connect_error);
+    }
 
-if(isset($_GET['alcool'])) {
+    if (isset($_GET['taux'])) {
+        $taux = floatval($_GET['taux']);
+        $sql = "INSERT INTO mesures (taux) VALUES ($taux)";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "Données enregistrées";
+        } else {
+            echo "Erreur: " . $conn->error;
+        }
+    } else {
+        echo "Aucune donnée reçue";
+    }
 
-    $alcool = $_GET['alcool'];
-
-    $sql = "INSERT INTO mesures (valeur) VALUES ('$alcool')";
-    $conn->query($sql);
-
-    echo "OK";
-}
-
-$conn->close();
+    $conn->close();
 ?>
