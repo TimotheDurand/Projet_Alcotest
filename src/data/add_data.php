@@ -1,14 +1,5 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ethylotest_db";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connexion échouée: " . $conn->connect_error);
-    }
+    include './db/database.php';
 
     if (isset($_GET['taux'])) {
         $taux = floatval($_GET['taux']);
