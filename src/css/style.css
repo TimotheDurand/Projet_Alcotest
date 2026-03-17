@@ -129,13 +129,16 @@ body{
 }
 
 .section_app article {
+    height: auto;
     margin: 30px;
+    padding: 30px;
     background-color: rgba(255,255,255,0.15);
     backdrop-filter: blur(10px);
+    border-radius: 30px;
 }
 
 .article_app_1 {
-    max-width: 1000px;
+    max-width: 1500px;
     grid-column: 1 / 3;
     justify-self: center;
 }
@@ -149,21 +152,26 @@ body{
 }
 
 .section_app p {
-    font-size: 20px;
+    font-size: 25px;
     text-align: left;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 20px 20px;
 }
 
 .section_app table {
     text-align: left;
-    line-height: 0em;
+    line-height: 1.5em;
 }
 
 .section_app h2 {
     font-size: 50px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.t1 {
+    background-color: #f25fffb0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
 }
 
 
@@ -198,7 +206,98 @@ footer{
 
 
 @media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        margin: 10px;
+        gap: 10px;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    /* SECTION INDEX */
+    .section_index {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .section_index h1 {
+        font-size: 32px;
+    }
+
+    .section_index p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .btn_index {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* SECTION APP */
     .section_app {
         grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .section_app article {
+        margin: 10px 0;
+        padding: 20px;
+    }
+
+    .section_app h2 {
+        font-size: 28px;
+    }
+
+    .section_app p {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .article_app_1,
+    .article_app_2,
+    .article_app_3 {
+        grid-column: auto;
+    }
+
+    /* TABLE */
+    .section_classement {
+        padding: 20px;
+    }
+
+    .section_classement table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .section_classement th,
+    .section_classement td {
+        padding: 10px;
+    }
+
+    /* SCROLL horizontal si tableau trop large */
+    .section_classement {
+        overflow-x: auto;
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 14px;
+        padding: 15px;
     }
 }
