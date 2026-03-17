@@ -10,7 +10,7 @@
             <br>Le projet consiste à concevoir un <strong>éthylotest connecté</strong>, capable de mesurer un <strong>taux d’alcool</strong> simulé et <strong>d’envoyer</strong> les données vers un site web.
         </p>
 
-        <table class="t1">
+        <table>
             <tr>
                 <th><p>L’objectif est de combiner plusieurs domaines étudiés dans notre formation :</p></th>
             </tr>
