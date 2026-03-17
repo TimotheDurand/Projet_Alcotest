@@ -6,7 +6,7 @@
 }
 
 body{
-    background: linear-gradient(120deg,#4facfe,#f25fff);
+    background-image: url("/Projet_Alcotest-main/src/images/background.jpg");
     min-height:100vh;
     color:white;
 }
