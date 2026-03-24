@@ -1,0 +1,44 @@
+.section_classement {
+    min-height: 80vh;
+    padding: 80px;
+    text-align: center;
+}
+
+.section_classement table{
+    margin:auto;
+    margin-top:30px;
+    border-collapse:collapse;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.section_classement th,td{
+    padding:15px 30px;
+}
+
+.section_classement th{
+    background:rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+    
+    .section_classement {
+        padding: 20px;
+    }
+
+    .section_classement table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .section_classement th,
+    .section_classement td {
+        padding: 10px;
+    }
+
+    .section_classement {
+        overflow-x: auto;
+    }
+}

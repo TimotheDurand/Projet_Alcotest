@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: url("/Projet_Alcotest-main/src/images/background.jpg");
+    min-height:100vh;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:50px;    border-radius: 10px;
+    background:rgba(0,0,0,0.2);
+}
+
+
+@media (max-width: 768px) {
+
+    /* FOOTER */
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,55 @@
+.section_index{
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.section_index h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.section_index p{
+    max-width:600px;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.btn_index{
+    padding:12px 30px;
+    background:rgba(255,255,255,0.2);
+    border-radius:30px;
+    backdrop-filter:blur(10px);
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.btn_index:hover{
+    background:rgba(255,255,255,0.4);
+}
+
+@media (max-width: 768px) {
+
+    .section_index {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .section_index h1 {
+        font-size: 32px;
+    }
+
+    .section_index p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .btn_index {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

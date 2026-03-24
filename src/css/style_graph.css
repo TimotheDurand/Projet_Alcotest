@@ -1,0 +1,26 @@
+.section_graph {
+    margin: 0 auto;
+    background: #2f2f4f;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 1500px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 40px;
+    margin: 30px;
+    text-align: center;
+}
+
+canvas {
+    background: #1e1e2f;
+    border-radius: 15px;
+    padding: 10px;
+}

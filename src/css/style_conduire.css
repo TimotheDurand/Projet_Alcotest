@@ -1,0 +1,81 @@
+.section_conduire {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.section_conduire article {
+    background: #2f2f4f;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 500px;
+}
+
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    background: #3a3a5a;
+    color: white;
+    font-size: 1rem;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #6c6cff;
+}
+
+
+form button {
+    padding: 12px 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+
+form button[value="0.25"] {
+    background-color: #28a745;
+    color: white;
+}
+
+form button[value="0.1"] {
+    background-color: #ffc107;
+    color: black;
+}
+
+form button[value="0"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+@media (max-width: 600px) {
+    form button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
