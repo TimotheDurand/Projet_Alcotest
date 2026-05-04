@@ -17,6 +17,29 @@ void initialiser_connexion(const char* ssid, const char* password) {
     Serial.println("\nConnecté au Wi-Fi !");
 }
 
+
+String getID() {
+  HTTPClient http;
+
+  http.begin("http://data/get_id.php");
+
+  int code = http.GET();
+
+  String id = "";
+
+  if (code > 0) {
+    id = http.getString();
+    Serial.println("ID reçu: " + id);
+  } else {
+    Serial.println("Erreur récupération ID");
+  }
+
+  http.end();
+
+  return id;
+}
+
+
 void send_data(float tauxAlcool) {
 
   String id = getID();
@@ -29,7 +52,7 @@ void send_data(float tauxAlcool) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
 
-    String url = "http://adress/save_data.php?id=" + id +
+    String url = "http://data/save_data.php?id=" + id +
                  "&taux=" + String(tauxAlcool, 2);
 
     http.begin(url);
