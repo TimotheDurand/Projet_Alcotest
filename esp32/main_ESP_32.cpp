@@ -18,42 +18,12 @@ void initialiser_connexion(const char* ssid, const char* password) {
 }
 
 
-String getID() {
-  HTTPClient http;
-
-  http.begin("http://data/get_id.php");
-
-  int code = http.GET();
-
-  String id = "";
-
-  if (code > 0) {
-    id = http.getString();
-    Serial.println("ID reçu: " + id);
-  } else {
-    Serial.println("Erreur récupération ID");
-  }
-
-  http.end();
-
-  return id;
-}
-
-
 void send_data(float tauxAlcool) {
-
-  String id = getID();
-
-  if (id == "NO_ID") {
-    Serial.println("Aucune session disponible");
-    return;
-  }
 
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
 
-    String url = "http://data/save_data.php?id=" + id +
-                 "&taux=" + String(tauxAlcool, 2);
+    String url = "http://ethyconnect.xyz/data/save_data.php?taux=" + String(tauxAlcool, 2);
 
     http.begin(url);
 
