@@ -17,20 +17,22 @@ void initialiser_connexion(const char* ssid, const char* password) {
     Serial.println("\nConnecté au Wi-Fi !");
 }
 
-void send_data(float tauxAlcool){
-    if (WiFi.status() == WL_CONNECTED) {
+void send_data(String id, float tauxAlcool) {
+
+  if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    String url = "http://adress/save_data.php?taux=" + String(tauxAlcool, 2);
+
+    String url = "http://adress/save_data.php?id=" + id +
+                 "&taux=" + String(tauxAlcool, 2);
 
     http.begin(url);
-    int httpResponseCode = http.GET();
-    
-    if (httpResponseCode > 0) {
-      String response = http.getString();
-      Serial.println(response);
+
+    int code = http.GET();
+
+    if (code > 0) {
+      Serial.println(http.getString());
     } else {
-      Serial.print("Erreur HTTP: ");
-      Serial.println(httpResponseCode);
+      Serial.println("HTTP ERROR");
     }
     http.end();
   }
