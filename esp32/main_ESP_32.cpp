@@ -23,7 +23,7 @@ void send_data(float tauxAlcool) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
 
-    String url = "http://ethyconnect.xyz/data/save_data.php?taux=" + String(tauxAlcool, 2);
+    String url = "http://ethyconnect.xyz/data/savedata.php?taux=" + String(tauxAlcool, 2);
 
     http.begin(url);
 
