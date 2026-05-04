@@ -17,7 +17,14 @@ void initialiser_connexion(const char* ssid, const char* password) {
     Serial.println("\nConnecté au Wi-Fi !");
 }
 
-void send_data(String id, float tauxAlcool) {
+void send_data(float tauxAlcool) {
+
+  String id = getID();
+
+  if (id == "NO_ID") {
+    Serial.println("Aucune session disponible");
+    return;
+  }
 
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
@@ -29,11 +36,8 @@ void send_data(String id, float tauxAlcool) {
 
     int code = http.GET();
 
-    if (code > 0) {
-      Serial.println(http.getString());
-    } else {
-      Serial.println("HTTP ERROR");
-    }
+    Serial.println(http.getString());
+
     http.end();
   }
 }
