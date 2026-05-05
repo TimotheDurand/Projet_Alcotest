@@ -3,8 +3,11 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "SSID";
-const char* password = "mots de passe";
+// === Connexion wifi ===
+const char* ssid = "iPhone de Timothe";
+const char* password = "1234abcd";
+
+// === URL site pour envoie données ===
 const char* SAVE_URL = "http://etyconnect.xyz/data/adddata.php?taux="
 const char* CONFIRM_URL = "http://ethyconnect.xyz/data/confirm_data.php";
 
