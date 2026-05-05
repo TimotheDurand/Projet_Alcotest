@@ -26,20 +26,45 @@ void initialiser_connexion(const char* ssid, const char* password) {
 
 // === Envoie des donner ===
 void send_data(float tauxAlcool) {
+    if (WiFi.status() != WL_CONNECTED) return;
 
-  if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
 
-    String url = "http://ethyconnect.xyz/data/savedata.php?taux=" + String(tauxAlcool, 2);
-
+    // Envoi du taux
+    String url = String(SAVE_URL) + "?taux=" + String(tauxAlcool, 2);
     http.begin(url);
-
     int code = http.GET();
-
-    Serial.println(http.getString());
-
+    String reponse = http.getString();
+    Serial.println("Envoi taux : " + reponse);
     http.end();
-  }
+
+    if (code != 200) {
+        Serial.println("Erreur envoi, abandon.");
+        return;
+    }
+
+    //  Confirmation max 10 tentatives toutes les 2s
+    bool confirme = false;
+    for (int i = 0; i < 10; i++) {
+        delay(2000);
+        HTTPClient httpConfirm;
+        httpConfirm.begin(CONFIRM_URL);
+        int codeConfirm = httpConfirm.GET();
+        String rep = httpConfirm.getString();
+        httpConfirm.end();
+
+        Serial.println("Confirmation (" + String(i+1) + ") : " + rep);
+
+        if (rep == "OK") {
+            confirme = true;
+            Serial.println("Taux bien recu par le serveur !");
+            break;
+        }
+    }
+
+    if (!confirme) {
+        Serial.println("Confirmation non recue apres 20 secondes.");
+    }
 }
 
 // === Calibration ===
