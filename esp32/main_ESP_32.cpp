@@ -31,7 +31,7 @@ void send_data(float tauxAlcool) {
     HTTPClient http;
 
     // Envoi du taux
-    String url = String(SAVE_URL) + "?taux=" + String(tauxAlcool, 2);
+    String url = "http://etyconnect.xyz/data/adddata.php?taux=" + String(tauxAlcool, 2);
     http.begin(url);
     int code = http.GET();
     String reponse = http.getString();
