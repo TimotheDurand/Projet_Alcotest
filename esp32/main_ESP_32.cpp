@@ -8,7 +8,7 @@ const char* ssid = "iPhone de Timothe";
 const char* password = "1234abcd";
 
 // === URL site pour envoie données ===
-const char* SAVE_URL = "http://etyconnect.xyz/data/adddata.php";
+const char* SAVE_URL = "http://etyconnect.xyz/data/savedata.php";
 const char* CONFIRM_URL = "http://ethyconnect.xyz/data/confirm_data.php";
 
 // === Broches ===
