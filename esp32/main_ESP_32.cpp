@@ -5,6 +5,8 @@
 
 const char* ssid = "SSID";
 const char* password = "mots de passe";
+const char* SAVE_URL = "http://etyconnect.xyz/data/adddata.php?taux="
+const char* CONFIRM_URL = "http://ethyconnect.xyz/data/confirm_data.php";
 
 // === Broches ===
 #define MQ3_PIN     34
@@ -31,7 +33,7 @@ void send_data(float tauxAlcool) {
     HTTPClient http;
 
     // Envoi du taux
-    String url = "http://etyconnect.xyz/data/adddata.php?taux=" + String(tauxAlcool, 2);
+    String url = String(SAVE_URL) + "?taux=" + String(tauxAlcool, 2);
     http.begin(url);
     int code = http.GET();
     String reponse = http.getString();
